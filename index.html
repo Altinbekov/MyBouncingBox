@@ -1,0 +1,36 @@
+<html style='background-color: black'>
+  <div id="my_bouncing_box" style= "background-color: blue; border-radius: 3px; position: absolute; left: 0px; top: 0px; min-width: 100px; min-height: 100px; text-align: center; font-weight: bold; color: #999;" >Gulnisa</div>
+  <script type="text/javascript">
+    let box = document.querySelector('#my_bouncing_box');
+    box.innerHTML = 'XB13'
+    let fps = 25
+    let body = document.querySelector('body')
+    body.style.width = window.innerWidth + 'px'
+    body.style.height = window.innerHeight + 'px'
+
+    let xbox = 1
+    let ybox = 1
+    let xTezlik = 1
+    let yTezlik = 1
+    function update() {
+        box.style.top = ybox + 'px'
+        box.style.left = xbox + 'px'
+    }
+    setInterval(() => {
+        if (xbox + box.clientWidth>= window.innerWidth || xbox <= 0){
+            xTezlik = -xTezlik
+        }
+        if (ybox + box.clientHeight>= window.innerHeight || ybox <= 0){
+            yTezlik = -yTezlik
+        }
+        ybox += yTezlik
+        xbox += xTezlik
+        update()
+    }, 1)
+  </script>
+  
+</html>
+
+
+
+
